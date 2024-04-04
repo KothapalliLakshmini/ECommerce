@@ -1,4 +1,4 @@
-package com.product.ecommerce.models;
+package com.product.ecommerce.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,7 +10,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name="Payment")
+@Table(name="Payments")
 public class Payment {
 	
 	@Id
@@ -18,15 +18,9 @@ public class Payment {
 	private Integer id;
 	
 	@OneToOne
-	private Orders order;
-	
-	@OneToOne
 	private PaymentStatus paymentStatus;
 	
-	private String paymentMode;
+	private String paymentMode;	
 	
-	
-	
-	
-	
+	private Integer amount;
 }
