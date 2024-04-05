@@ -50,4 +50,15 @@ public class ProductService {
 		productRepository.deleteById(productId);
 		return new ResponseEntity<>("Product with ID " + productId + " is Deleted!", HttpStatus.OK) ;
 	}
+	
+	public ResponseEntity<List<Product>> validateExistenceProduct(Integer productId){
+		List<Product> Exists = productRepository.findByAvailableQty(productId);
+			if(Exists != null) {
+		return new ResponseEntity<>(HttpStatus.OK);
+	}else {
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	}
+			
+}
+	
 }

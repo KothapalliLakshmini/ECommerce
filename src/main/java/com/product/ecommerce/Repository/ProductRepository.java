@@ -11,5 +11,9 @@ import com.product.ecommerce.model.Product;
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 	
 	List<Product> findByNameContainingOrDescriptionContaining(String nameString, String descriptionString);
+	List<Product> findByAvailableQty(Integer productId);
+	
+	
+	 
 
 }

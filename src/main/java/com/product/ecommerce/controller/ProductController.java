@@ -52,5 +52,12 @@ public class ProductController {
 	public ResponseEntity<String> deleteProduct(@PathVariable Integer productId) {
 		return productService.deleteProductById(productId);
 	} 
+	
+	@GetMapping("/validateExistence")
+	public ResponseEntity<List<Product>> validateExistence(@PathVariable Integer productId){
+	
+		return productService.validateExistenceProduct(productId);
+	}
+
 
 }
