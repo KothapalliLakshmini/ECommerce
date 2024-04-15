@@ -1,5 +1,6 @@
-package com.product.ecommerce.model;
+package com.product.ecommerce.model.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,15 +11,20 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name="Sellers")
-public class Seller {
+@Table(name="Payments")
+public class Payment {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	private String name;
+	private Long id;
+	
+	@Column(unique=true)
+	private String transactionId;
 	
 	@OneToOne
-	private Address address;
+	private PaymentStatus paymentStatus;
 	
+	private String paymentMode;	
+	
+	private Integer amount;
 }

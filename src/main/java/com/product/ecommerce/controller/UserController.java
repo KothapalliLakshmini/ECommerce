@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.product.ecommerce.model.User;
+import com.product.ecommerce.model.entity.Address;
+import com.product.ecommerce.model.entity.User;
 import com.product.ecommerce.service.UserService;
 
 @RestController
@@ -33,14 +34,19 @@ public class UserController {
 		return userService.getUserById(userId);
 	} 
 	
-	@PostMapping()
+	@PostMapping("/signup")
 	public ResponseEntity<String> postUser(@RequestBody User user) {
 		return userService.postUser(user);
 	}
 	
-	@PutMapping()
-	public ResponseEntity<String> putUser(@RequestBody User user) {
-		return userService.putUser(user);
+	@PostMapping("/saveAddress/{userId}")
+	public ResponseEntity<String> saveAddress(@PathVariable Long userId, @RequestBody Address address) {
+		return userService.saveAddress(userId, address);
+	}
+	
+	@PutMapping("/updateUser")
+	public ResponseEntity<String> updateUser(@RequestBody User user) {
+		return userService.updateUser(user);
 	}
 	
 	@DeleteMapping("/{userId}") 

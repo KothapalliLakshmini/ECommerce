@@ -1,4 +1,4 @@
-package com.product.ecommerce.model;
+package com.product.ecommerce.model.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,17 +10,19 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name="Payments")
-public class Payment {
+@Table(name = "OrderProducts")
+public class OrderProduct {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 	
 	@OneToOne
-	private PaymentStatus paymentStatus;
+	private Product product;
+
+	private Integer quantity;
 	
-	private String paymentMode;	
+	@OneToOne
+	private User seller;
 	
-	private Integer amount;
 }

@@ -8,8 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.product.ecommerce.Repository.OrderRepository;
-import com.product.ecommerce.model.Order;
+import com.product.ecommerce.model.entity.Order;
+import com.product.ecommerce.repository.OrderRepository;
 
 @Service
 public class OrderService {

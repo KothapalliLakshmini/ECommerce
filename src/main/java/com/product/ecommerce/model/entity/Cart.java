@@ -1,6 +1,6 @@
-package com.product.ecommerce.model;
+package com.product.ecommerce.model.entity;
 
-import java.util.List;
+import java.util.Set;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,18 +13,17 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name="Products")
-public class Product {
+@Table(name = "Cart")
+public class Cart {
 	
-	@Id 
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	private String name;
-	private String description;
-	private Integer price;
-	private Integer availableQty;
+	private Long id;
 	
 	@OneToMany
-	private List<Seller> sellers;
+	private Set<OrderProduct> orderProducts;
+	
+	@OneToOne
+	private User user;
 	
 }

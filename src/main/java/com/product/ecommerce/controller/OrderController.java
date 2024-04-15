@@ -13,20 +13,22 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.product.ecommerce.model.Order;
+import com.product.ecommerce.model.entity.Order;
 import com.product.ecommerce.service.OrderService;
 
 @RestController
 @RequestMapping("/orders")
 public class OrderController {
+	
+	public OrderController(OrderService orderService) {
+		this.orderService = orderService;
+	}
 
-	@Autowired
 	OrderService orderService;
 
 	@GetMapping(value = "/all")
 	public ResponseEntity<List<Order>> getAllOrders() {
 		return orderService.getAllOrders();
-
 	}
 
 	@GetMapping("/{orderId}")
