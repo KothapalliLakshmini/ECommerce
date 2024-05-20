@@ -22,6 +22,7 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	private String name;
 	
 	@Column(unique = true)
@@ -31,7 +32,7 @@ public class User {
 	
 	private Long phoneNumber;
 
-	@OneToMany
+	@OneToMany(cascade = CascadeType.MERGE)
 	private Set<Role> roles;
 
 	@OneToMany(cascade = CascadeType.MERGE)

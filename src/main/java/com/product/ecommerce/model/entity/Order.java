@@ -1,9 +1,12 @@
 package com.product.ecommerce.model.entity;
 
-import java.util.List;
+import java.util.Set;
+import java.util.UUID;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -13,23 +16,27 @@ import lombok.Data;
 @Data
 @Table(name="Orders")
 public class Order {
+	
+	public Order() {
+		this.orderId = UUID.randomUUID().toString();
+	}
 
 	@Id
 	private String orderId;
 
-	@OneToMany
-	private List<OrderProduct> orderProducts;
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	private Set<OrderProduct> orderProducts;
 
-	@OneToOne
+	@ManyToOne
 	private Address address;
 
-	@OneToOne
+	@ManyToOne
 	private User user;
 
 	@OneToOne
 	private Payment payment;
 
-	@OneToOne
+	@ManyToOne
 	private OrderStatus orderStatus;
 
 }

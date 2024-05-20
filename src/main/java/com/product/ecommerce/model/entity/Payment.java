@@ -1,5 +1,7 @@
 package com.product.ecommerce.model.entity;
 
+import java.util.UUID;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,4 +29,8 @@ public class Payment {
 	private String paymentMode;	
 	
 	private Integer amount;
+	
+	private void setTransactionId() {
+		this.transactionId = UUID.randomUUID().toString();
+	}
 }

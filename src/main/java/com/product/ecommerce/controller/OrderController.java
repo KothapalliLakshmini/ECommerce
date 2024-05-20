@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.product.ecommerce.model.entity.Order;
+import com.product.ecommerce.model.request.OrderRequest;
 import com.product.ecommerce.service.OrderService;
 
 @RestController
@@ -51,4 +52,8 @@ public class OrderController {
 		return orderService.deleteById(orderId);
 	}
 	
+	@PostMapping("/placeOrderByCartId/{cartId}")
+	public ResponseEntity<String> placeOrderByCartId(@RequestBody OrderRequest orderRequest) {
+		return orderService.placeOrderByCartId(orderRequest);
+	}
 }
