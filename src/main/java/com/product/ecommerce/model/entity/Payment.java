@@ -16,6 +16,15 @@ import lombok.Data;
 @Table(name="Payments")
 public class Payment {
 	
+	public Payment() {
+		setTransactionId();
+	}
+	
+	public Payment(String paymentMode) {
+		setTransactionId();
+		this.paymentMode = paymentMode;
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

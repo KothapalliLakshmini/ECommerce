@@ -22,7 +22,10 @@ import com.product.ecommerce.repository.ProductRepository;
 @Service
 public class ProductService {
 
-	@Autowired
+	public ProductService(ProductRepository productRepository) {
+		this.productRepository = productRepository;
+	}
+
 	ProductRepository productRepository;
 
 	public ResponseEntity<List<Product>> getAllProducts() {
@@ -43,7 +46,7 @@ public class ProductService {
 		if (products.isPresent()) {
 			return new ResponseEntity<>(products.get(), HttpStatus.OK);
 		} else {
-			return new ResponseEntity<>(String.format("Product with ID %s is not present.",productId),
+			return new ResponseEntity<>(String.format("Product with ID %s is not present.", productId),
 					HttpStatus.BAD_REQUEST);
 		}
 	}

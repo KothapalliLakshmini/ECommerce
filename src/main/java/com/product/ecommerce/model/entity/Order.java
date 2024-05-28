@@ -33,7 +33,7 @@ public class Order {
 	@ManyToOne
 	private User user;
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private Payment payment;
 
 	@ManyToOne
