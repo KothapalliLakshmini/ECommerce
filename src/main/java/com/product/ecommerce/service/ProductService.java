@@ -17,7 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.product.ecommerce.model.entity.Image;
 import com.product.ecommerce.model.entity.Product;
 import com.product.ecommerce.model.entity.User;
-import com.product.ecommerce.repository.ProductRepository;
+import com.product.ecommerce.Repository.ProductRepository;
 
 @Service
 public class ProductService {

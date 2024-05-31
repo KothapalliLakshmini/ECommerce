@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.product.ecommerce.model.entity.Address;
 import com.product.ecommerce.model.entity.User;
-import com.product.ecommerce.repository.UserRepository;
+import com.product.ecommerce.Repository.UserRepository;
 
 @Service
 public class UserService {
