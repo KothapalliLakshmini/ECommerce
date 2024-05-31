@@ -21,8 +21,8 @@ import com.product.ecommerce.model.entity.Payment;
 import com.product.ecommerce.model.entity.PaymentStatus;
 import com.product.ecommerce.model.entity.User;
 import com.product.ecommerce.model.request.OrderRequest;
-import com.product.ecommerce.repository.OrderRepository;
-import com.product.ecommerce.repository.UserRepository;
+import com.product.ecommerce.Repository.OrderRepository;
+import com.product.ecommerce.Repository.UserRepository;
 
 @Service
 public class OrderService {

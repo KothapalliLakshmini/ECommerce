@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.product.ecommerce.model.entity.Role;
-import com.product.ecommerce.repository.RoleRepository;
+import com.product.ecommerce.Repository.RoleRepository;
 
 @Service
 public class RoleService {

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.product.ecommerce.model.entity.Cart;
 import com.product.ecommerce.model.entity.OrderProduct;
-import com.product.ecommerce.repository.CartRepository;
+import com.product.ecommerce.Repository.CartRepository;
 
 @Service
 public class CartService {
